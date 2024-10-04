@@ -19,7 +19,6 @@ public class CustomerRepository {
     }
 
     public Customer findCustomerById(Long id) {
-        System.out.println("Buscando al usuario...");
         return customers.stream()
                 .filter(customer -> id.equals(customer.getId()))
                 .findAny().orElse(null);

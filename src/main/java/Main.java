@@ -34,6 +34,7 @@ public class Main {
             switch (opcion) {
                 case 1:
                     create(scanner);
+                    break;
                 case 2:
                     list();
                     break;
@@ -51,12 +52,12 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Cerrando programa...");
-
                     break;
                 default:
                     System.out.println("La opción no es correcta. Elige una de las opciones dadas.");
                     break;
             }
+            System.out.println("Pulsa una tecla para continuar");
             scanner.next();
 
             if (opcion == 0) {
@@ -79,7 +80,7 @@ public class Main {
         List<Customer> customers = repository.findAllCustomers();
 
         if (!customers.isEmpty()) {
-            System.out.println("id   nombre    apellido   email");
+            System.out.println("id   nombre    apellido     email");
             for (Customer customer : customers) {
                 System.out.println(customer.toString());
             }
@@ -96,6 +97,11 @@ public class Main {
 
             if (id == -1)
                 return;
+
+            if (repository.findCustomerById(id) == null) {
+                System.out.println("El cliente no existe");
+                return;
+            }
 
             Customer customer = customerTemplate(scanner);
             if (customer == null)
@@ -114,7 +120,13 @@ public class Main {
 
             Customer customer = repository.findCustomerById(id);
 
-            System.out.println(customer.toString());
+            if (customer == null) {
+                System.out.println("El cliente no existe");
+                return;
+            }
+
+            System.out.println("id   nombre    apellido     email");
+            System.out.println(customer);
         } catch (InputMismatchException e) {
             System.out.println("Error por meter un valor no valido");
         }
@@ -149,7 +161,6 @@ public class Main {
             String nombre = scanner.next();
 
             if (nombre.equals("-1")) {
-                scanner.close();
                 return null;
             }
 
