@@ -61,6 +61,7 @@ public class Main {
             scanner.next();
 
             if (opcion == 0) {
+                scanner.close();
                 System.out.println("Adios");
                 break;
             }
@@ -77,7 +78,7 @@ public class Main {
     }
 
     static void list() {
-        List<Customer> customers = repository.findAllCustomers();
+        List<Customer> customers = repository.findAll();
 
         if (!customers.isEmpty()) {
             System.out.println("id   nombre    apellido     email");
@@ -168,10 +169,8 @@ public class Main {
             String apellido = scanner.next();
             System.out.println("Escribe el email");
             String email = scanner.next();
-            System.out.println("Escribe la edad del cliente");
-            int edad = scanner.nextInt();
 
-            return new Customer(nombre, apellido, email, edad);
+            return new Customer(nombre, apellido, email);
         } catch (InputMismatchException e) {
             System.out.println("Error por meter un valor no valido");
             return null;

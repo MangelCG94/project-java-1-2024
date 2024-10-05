@@ -1,17 +1,15 @@
 public class Customer {
     private final Long id;
     private String nombre, apellido, email;
-    private int edad;
     
     private static Long total = 0L;
 
-    public Customer(String nombre, String apellido, String email, int edad) {
+    public Customer(String nombre, String apellido, String email) {
         total++;
         this.id = total;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        this.edad = edad;
     }
 
     public Long getId() {
@@ -40,14 +38,6 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     @Override

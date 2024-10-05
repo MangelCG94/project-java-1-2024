@@ -13,7 +13,7 @@ public class CustomerRepository {
         System.out.println("Cliente añadido");
     }
 
-    public List<Customer> findAllCustomers() {
+    public List<Customer> findAll() {
         System.out.println("Mostrando lista de clientes");
         return customers;
     }
@@ -36,7 +36,6 @@ public class CustomerRepository {
                 customer.setNombre(newCustomer.getNombre());
                 customer.setApellido(newCustomer.getApellido());
                 customer.setEmail(newCustomer.getEmail());
-                customer.setEdad(newCustomer.getEdad());
 
                 break;
             }
@@ -51,9 +50,9 @@ public class CustomerRepository {
     }
 
     void createTestData() {
-        Customer cus1 = new Customer("Pedro Jose", "Pereira","pedro@hotmail.com", 40);
-        Customer cus2 = new Customer("Ana", "Bautista","ana@hotmail.com", 42);
-        Customer cus3 = new Customer("Cintia", "López","cintia@hotmail.com",30);
+        Customer cus1 = new Customer("Pedro Jose", "Pereira","pedro@hotmail.com");
+        Customer cus2 = new Customer("Ana", "Bautista","ana@hotmail.com");
+        Customer cus3 = new Customer("Cintia", "López","cintia@hotmail.com");
         customers.addAll(List.of(cus1,cus2,cus3));
         System.out.println("Clientes creados");
     }
