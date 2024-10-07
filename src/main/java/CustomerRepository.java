@@ -15,7 +15,7 @@ public class CustomerRepository {
 
     public List<Customer> findAll() {
         System.out.println("Mostrando lista de clientes");
-        return customers;
+        return new ArrayList<>(customers);
     }
 
     public Customer findCustomerById(Long id) {
