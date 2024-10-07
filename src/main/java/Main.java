@@ -6,6 +6,10 @@ public class Main {
     static final CustomerRepository repository = new CustomerRepository();
 
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        scanner.useDelimiter("\\n");
+
         while (true) {
             System.out.println();
             System.out.println("---------------------------------");
@@ -17,9 +21,6 @@ public class Main {
             System.out.println("  6. Datos de test");
             System.out.println("  0. Salir");
             System.out.println("---------------------------------");
-
-            Scanner scanner = new Scanner(System.in);
-            scanner.useDelimiter("\\n");
 
             System.out.println("Elige una opción numérica");
             int opcion;
